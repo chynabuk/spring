@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+    	http://www.springframework.org/schema/beans/spring-beans.xsd
+    	http://www.springframework.org/schema/context
+    	http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="com.spring.java_spring_introduction"/>
+
+    <bean id="sha256" class="com.spring.java_spring_introduction.SHA256"></bean>
+    <bean id="ethash" class="com.spring.java_spring_introduction.Ethash"></bean>
+
+
+    <bean id="miner" class="com.spring.java_spring_introduction.Miner">
+        <constructor-arg ref="sha256"/>
+        <property name="algorithm" ref="ethash"/>
+    </bean>
+
+<!--    <bean id="miner2" class="com.spring.java_spring_introduction.Miner">-->
+<!--    </bean>-->
+
+
+</beans>
